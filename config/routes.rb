@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  mount Feed::Data => '/'
+  
+  root to: 'products#index'
+  resources :products
+
 end

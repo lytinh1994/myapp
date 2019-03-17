@@ -1,0 +1,41 @@
+= form_for @product do |f|
+  - if @product.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
+      %ul
+        - @product.errors.full_messages.each do |message|
+          %li= message
+  - if @product.image.attached?
+    = image_tag @product.image.attached? ? url_for(@product.image) : '/assets/default.jpg', style: 'width: 200px; height:auto'
+    = image_tag @product.image.attached? ? @product.image.variant(resize: "100x100").processed : '/assets/default.jpg', style: 'width: 200px; height:auto'
+    - variant = @product.image.variant(resize: "100x100").processed
+    %br/
+    = link_to 'down', rails_blob_url(@product.image, disposition: "attachment")
+    %br/
+
+  .field
+    = f.label :image
+    = f.file_field :image  
+  .field
+    = f.label :sku
+    = f.text_field :sku
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :availability
+    = f.text_field :availability
+  .field
+    = f.label :condition
+    = f.text_field :condition
+  .field
+    = f.label :price
+    = f.text_field :price
+  .field
+    = f.label :brand
+    = f.text_field :brand
+  .actions
+    = f.submit 'Save'

@@ -57,6 +57,18 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
-
+gem 'pry'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Haml 
+gem 'haml', '~> 5.0'
+gem "haml-rails"
+
+
+gem "mini_magick"
+
+# grape API
+gem "grape"
+gem 'grape-entity'
+gem 'rack-cors', :require => 'rack/cors'
