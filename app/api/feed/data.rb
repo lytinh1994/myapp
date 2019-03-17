@@ -13,7 +13,7 @@ module Feed
 
     resource :products do 
       get do
-        # p request.headers
+        p request.headers
         pxml = []
         Product.all.each do |p|
           pxml << {
